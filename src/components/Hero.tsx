@@ -2,46 +2,10 @@ import { Helmet } from 'react-helmet-async';
 import BackVideo from '../assets/64b7ad3f85627ca028e3cf80_VantageHomepageVideoWeb (1)-transcode.mp4'
 import Navbar from './Navbar'
 import ReviewPlant from '../assets/Review plant.webp'
-import WallPlant from '../assets/Wall plantings.jpg'
-import CeilingPlant from '../assets/ceiling plantings.jpg'
-import BoxPlant from '../assets/Plants on display.jpg'
-import HousePlant from '../assets/planted furniture.jpg'
+import { flashCards } from '../data/flashcards';
 
 const Hero = () => {
-  const flashCards = [
-    {
-      id: 1,
-      image: BoxPlant,
-      title: 'Plants and displays',
-      head:'Plants and displays',
-      cta: 'Discover',
-      paragraph: 'Enhancing your surroundings and providing benefits beyond aesthetics alone'
-    },
-    {
-      id: 2,
-      image: CeilingPlant,
-      title: 'Ceiling Plants',
-      head:'Ceiling Plants',
-      cta: 'Discover',
-      paragraph: 'Enhancing your surroundings and providing benefits beyond aesthetics alone'
-    },
-    {
-      id: 3,
-      image: WallPlant,
-      title: 'Wall Plantings',
-      head:'Wall Plantings',
-      cta: 'Discover',
-      paragraph: 'Enhancing your surroundings and providing benefits beyond aesthetics alone'
-    },
-    {
-      id: 4,
-      image: HousePlant,
-      title: 'Adorning plants',
-      head:'Adorning plants',
-      cta: 'Discover',
-      paragraph: 'Enhancing your surroundings and providing benefits beyond aesthetics alone'
-    }
-  ]
+ 
 
   return (
     <>
