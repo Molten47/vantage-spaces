@@ -1,5 +1,4 @@
 import type { FlashCard } from '../types/flashcard'
-
 import WallPlant from '../assets/Wall plantings.jpg'
 import CeilingPlant from '../assets/ceiling plantings.jpg'
 import BoxPlant from '../assets/Plants on display.jpg'

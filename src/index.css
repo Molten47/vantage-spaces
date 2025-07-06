@@ -7,6 +7,7 @@
   --form-yellow: #ffd700;
   --alternate-color: #e3f0ee;
   --footer-color: #efe9e3;
+  --strange-color:#e3f0ee;
 
 
   --main-font: "EB Garamond", serif;
@@ -51,6 +52,9 @@ body {
   .bg-yellow{
     background-color: var(--form-yellow);
   }
+   .bg-new{
+    background-color: var(--strange-color);
+  }
   
 }
 @keyframes spin-slow {
@@ -63,4 +67,11 @@ body {
 }
 .animate-spin-slow {
   animation: spin-slow 15s linear infinite;
+}
+.news-grid {
+  overflow: auto; /* Or scroll */
+  scrollbar-width: none; /* Firefox */
+}
+.news-grid::-webkit-scrollbar {
+  display: none;
 }

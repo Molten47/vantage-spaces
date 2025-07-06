@@ -198,7 +198,7 @@ const Hero = () => {
                 src={ReviewPlant} 
                 style={{height:'36rem', width:'36rem'}} 
                 alt="Premium indoor houseplant - perfect for plant lovers and home decoration"
-                loading="eager"
+                loading="lazy"
                 fetchPriority="high"
               />
             </div>
@@ -206,7 +206,7 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Flash Cards Section - Positioned to flow into About section */}
+      {/* Flash Cards that flows into the about section below*/}
       <div className='relative z-30 main-font -mt-40'>
         <div className='grid grid-cols-4 gap-6 px-8 max-w-[90rem] z-40 mx-auto'>
           {flashCards.map((flash, index) => (
@@ -215,7 +215,7 @@ const Hero = () => {
                 className='flip-card-inner relative w-full h-full transition-transform duration-700 transform-style-preserve-3d hover:rotate-y-180'
                 style={{ transformStyle: 'preserve-3d' }}
               >
-                {/* Front of card */}
+                {/* Front of card before flip */}
                 <div 
                   className='flip-card-front absolute w-full h-full backface-hidden rounded-2xl overflow-hidden shadow-2xl'
                   style={{ 
@@ -234,7 +234,7 @@ const Hero = () => {
                   </div>
                 </div>
                 
-                {/* Back of card */}
+                {/* Back of the card when flipped*/}
                 <div 
                   className='flip-card-back absolute w-full h-full backface-hidden rounded-2xl shadow-2xl flex flex-col justify-center items-center p-6 text-center'
                   style={{ 
