@@ -1,12 +1,12 @@
 import { Helmet } from 'react-helmet-async';
+import { motion } from 'framer-motion';
 import BackVideo from '../assets/64b7ad3f85627ca028e3cf80_VantageHomepageVideoWeb (1)-transcode.mp4'
 import Navbar from './Navbar'
 import ReviewPlant from '../assets/Review plant.webp'
+import YourLogo from '../assets/63d919c1aaf61dc3882a2464_VantageBrandMark_WHITE.svg' // Add your logo import here
 import { flashCards } from '../data/flashcards';
 
 const Hero = () => {
- 
-
   return (
     <>
       <Helmet>
@@ -160,15 +160,43 @@ const Hero = () => {
             {/* Content for the overlay section goes here */}
             <div className='p-4 lg:p-8 h-full flex flex-col justify-center'>
               <div className='lg:p-26 lg:w-3/4 w-full'>
-                <p className='text-white lg:text-4xl text-2xl font-light basic-font mb-4 tracking-wide'>
+                {/* Animated Logo */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.5, y: -20 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  transition={{ 
+                    duration: 0.8,
+                    ease: "easeOut",
+                    delay: 0.3 
+                  }}
+                  className="mb-6"
+                >
+                </motion.div>
+
+                <motion.p 
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.8 }}
+                  className='text-white lg:text-4xl text-2xl font-light basic-font mb-4 tracking-wide'
+                >
                   Use the power of planting to
-                </p>
-                <h1 className='text-white lg:text-8xl text-4xl main-font font-bold'>
+                </motion.p>
+                <motion.h1 
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 1 }}
+                  className='text-white lg:text-8xl text-4xl main-font font-bold'
+                >
                   attract, engage and <span className='text-[#ffd700]'>inspire.</span>
-                </h1>
+                </motion.h1>
                 
                 {/* Mobile-only content from right section */}
-                <div className='lg:hidden mt-8'>
+                <motion.div 
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 1.2 }}
+                  className='lg:hidden mt-8'
+                >
                   <h2 className='text-white text-xl font-bold mb-4 tracking-wide'>
                     Planting the places where great teams thrive.
                   </h2>
@@ -176,14 +204,16 @@ const Hero = () => {
                     We all know that indoor planting enhances a space. But we believe it can do more. Used skilfully, it supports the creation of workspaces of the future.
                   </p>
                   <div className='flex'>
-                    <button 
+                    <motion.button 
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
                       className='uppercase text-white border-3 border-white py-3 px-6 rounded-full hover:bg-[#3f615dce] transition-colors duration-300 text-sm'
                       aria-label="Shop premium indoor plants collection"
                     >
                       Shop Plants Now
-                    </button>
+                    </motion.button>
                   </div>
-                </div>
+                </motion.div>
               </div>
             </div>
           </div>
@@ -193,33 +223,65 @@ const Hero = () => {
             {/* Content for the overlay section goes here */}
             <div className='lg:pl-8 pl-4 h-full flex flex-col justify-center z-20'>
               <div className='lg:p-26 lg:w-4/6 w-full'>
-                <h2 className='text-white lg:text-3xl text-xl font-bold mb-4 tracking-wide'>
+                <motion.h2 
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: 0.8 }}
+                  className='text-white lg:text-3xl text-xl font-bold mb-4 tracking-wide'
+                >
                   Planting the places where great teams thrive.
-                </h2>
-                <p className='text-white/80 lg:text-base text-sm'>
-               We all know that indoor planting enhances a space. But we believe it can do more. Used skilfully, it supports the creation of workspaces of the future.
-                </p>
-                <div className='flex my-5'>
-                  <button 
+                </motion.h2>
+                <motion.p 
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: 1 }}
+                  className='text-white/80 lg:text-base text-sm'
+                >
+                  We all know that indoor planting enhances a space. But we believe it can do more. Used skilfully, it supports the creation of workspaces of the future.
+                </motion.p>
+                <motion.div 
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: 1.2 }}
+                  className='flex my-5'
+                >
+                  <motion.button 
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
                     className='uppercase text-white border-3 border-white lg:py-4 lg:px-8 py-3 px-6 rounded-full hover:bg-[#3f615dce] transition-colors duration-300 lg:text-base text-sm'
                     aria-label="Shop premium indoor plants collection"
                   >
                     Shop Plants Now
-                  </button>
-                </div>
+                  </motion.button>
+                </motion.div>
               </div>
             </div>
             
             {/* Plant image positioned to overflow to the right - Desktop only */}
-            <div className='absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-1/2 z-10'>
-              <img 
+            <motion.div 
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 1.4 }}
+              className='absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-1/2 z-10'
+            >
+              <motion.img 
                 src={ReviewPlant} 
                 style={{height:'36rem', width:'36rem'}} 
                 alt="Premium indoor houseplant - perfect for plant lovers and home decoration"
                 loading="lazy"
                 fetchPriority="high"
+                animate={{ 
+                  y: [0, -10, 0],
+                  rotateY: [0, 3, 0, -3, 0]
+                }}
+                transition={{ 
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 2
+                }}
               />
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>
@@ -229,7 +291,13 @@ const Hero = () => {
         {/* Desktop Grid (lg and up) */}
         <div className='hidden lg:grid grid-cols-4 gap-6 px-8 max-w-[90rem] z-40 mx-auto'>
           {flashCards.map((flash, index) => (
-            <div key={flash.id} className='flip-card h-80 w-full perspective-1000'>
+            <motion.div 
+              key={flash.id} 
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 1.6 + (index * 0.1) }}
+              className='flip-card h-80 w-full perspective-1000'
+            >
               <div 
                 className='flip-card-inner relative w-full h-full transition-transform duration-700 transform-style-preserve-3d hover:rotate-y-180'
                 style={{ transformStyle: 'preserve-3d' }}
@@ -282,7 +350,7 @@ const Hero = () => {
                   </button>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
@@ -290,7 +358,13 @@ const Hero = () => {
         <div className='lg:hidden'>
           <div className='flex overflow-x-auto gap-6 px-4 pb-6 scrollbar-hide snap-x snap-mandatory'>
             {flashCards.map((flash, index) => (
-              <div key={flash.id} className='flex-shrink-0 w-80 h-96 snap-start'>
+              <motion.div 
+                key={flash.id} 
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 1.6 + (index * 0.1) }}
+                className='flex-shrink-0 w-80 h-96 snap-start'
+              >
                 <div className='flip-card h-full w-full perspective-1000'>
                   <div 
                     className='flip-card-inner relative w-full h-full transition-transform duration-700 transform-style-preserve-3d hover:rotate-y-180'
@@ -345,7 +419,7 @@ const Hero = () => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
