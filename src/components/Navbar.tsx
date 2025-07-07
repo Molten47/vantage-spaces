@@ -11,17 +11,30 @@ const Navbar = () => {
         <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
       </Helmet>
 
-      <nav className='flex flex-row justify-between items-center w-full z-20 h-[10vh] text-white px-8 py-8 bg-transparent'>
+      <nav className='flex flex-row justify-between items-center w-full z-20 h-[10vh] text-white lg:px-8 px-4 lg:py-8 py-4 bg-transparent'>
+        {/* Logo Section */}
         <div>
-          <img src={Logo} style={{ height: '7rem' }} alt="Vantage Spaces Logo" />
+          <img 
+            src={Logo} 
+            className='lg:h-28 h-16' 
+            alt="Vantage Spaces Logo" 
+          />
         </div>
-        <div className='flex items-center justify-center pr-24'>
+        
+        {/* Brand Name - Hidden on mobile, centered on desktop */}
+        <div className='lg:flex hidden items-center justify-center pr-24'>
           <h2 className='uppercase alternate-font text-4xl text-white mr-8 font-semibold'>
             <span className='text-[#ffd700]'>vantage</span> spaces
           </h2>
         </div>
+        
+        {/* Menu Icon */}
         <div>
-          <span className="material-symbols-outlined" style={{ fontSize: '42px' }}>sort</span>
+          <span 
+            className="material-symbols-outlined lg:text-[42px] text-[32px] cursor-pointer hover:text-[#ffd700] transition-colors duration-300" 
+          >
+            sort
+          </span>
         </div>
       </nav>
     </>

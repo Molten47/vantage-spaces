@@ -135,8 +135,8 @@ const Hero = () => {
         </script>
       </Helmet>
 
-      {/* Main Hero Section - Reduced height to make room for flowing cards */}
-      <div className='w-full flex flex-col z-10 h-[90vh] relative bg-primary overflow-hidden'>
+      {/* Main Hero Section - Full screen on mobile */}
+      <div className='w-full flex flex-col z-10 lg:h-[90vh] h-screen relative bg-primary overflow-hidden'>
         {/* Background video section */}
         <div className="vintagebackvideo absolute w-full h-full inset-0 z-0">
           <video 
@@ -153,37 +153,55 @@ const Hero = () => {
         </div>
         <Navbar/>
         
-        {/* Split overlay container */}
-        <div className='absolute inset-0 z-10 flex'>
-          {/* Left 50% - transparent (video visible) */}
-          <div className='w-[50%] h-full '>
+        {/* Split overlay container - Full screen on mobile */}
+        <div className='absolute inset-0 z-10 flex lg:flex-row flex-col'>
+          {/* Left section - Text content */}
+          <div className='lg:w-[50%] w-full lg:h-full h-full'>
             {/* Content for the overlay section goes here */}
-            <div className='p-8 h-full flex flex-col justify-center'>
-              <div className='p-26 w-3/4'>
-                <p className='text-white text-4xl font-light basic-font mb-4 tracking-wide'>
+            <div className='p-4 lg:p-8 h-full flex flex-col justify-center'>
+              <div className='lg:p-26 lg:w-3/4 w-full'>
+                <p className='text-white lg:text-4xl text-2xl font-light basic-font mb-4 tracking-wide'>
                   Use the power of planting to
                 </p>
-                <h1 className='text-white text-8xl main-font font-bold'>
+                <h1 className='text-white lg:text-8xl text-4xl main-font font-bold'>
                   attract, engage and <span className='text-[#ffd700]'>inspire.</span>
                 </h1>
+                
+                {/* Mobile-only content from right section */}
+                <div className='lg:hidden mt-8'>
+                  <h2 className='text-white text-xl font-bold mb-4 tracking-wide'>
+                    Planting the places where great teams thrive.
+                  </h2>
+                  <p className='text-white/80 text-sm mb-6'>
+                    We all know that indoor planting enhances a space. But we believe it can do more. Used skilfully, it supports the creation of workspaces of the future.
+                  </p>
+                  <div className='flex'>
+                    <button 
+                      className='uppercase text-white border-3 border-white py-3 px-6 rounded-full hover:bg-[#3f615dce] transition-colors duration-300 text-sm'
+                      aria-label="Shop premium indoor plants collection"
+                    >
+                      Shop Plants Now
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
           
-          {/* Right side with - overlay no opacity */}
-          <div className='w-[50%] basic-font h-full flex flex-row items-center justify-center bg-primary relative'>
+          {/* Right section - Content and plant image - Hidden on mobile */}
+          <div className='lg:w-[50%] w-full basic-font lg:h-full h-1/2 lg:flex hidden flex-row items-center justify-center bg-primary relative'>
             {/* Content for the overlay section goes here */}
-            <div className='pl-8 h-full flex flex-col justify-center z-20'>
-              <div className='p-26 w-4/6'>
-                <h2 className='text-white text-3xl font-bold mb-4 tracking-wide'>
+            <div className='lg:pl-8 pl-4 h-full flex flex-col justify-center z-20'>
+              <div className='lg:p-26 lg:w-4/6 w-full'>
+                <h2 className='text-white lg:text-3xl text-xl font-bold mb-4 tracking-wide'>
                   Planting the places where great teams thrive.
                 </h2>
-                <p className='text-white/80'>
+                <p className='text-white/80 lg:text-base text-sm'>
                We all know that indoor planting enhances a space. But we believe it can do more. Used skilfully, it supports the creation of workspaces of the future.
                 </p>
                 <div className='flex my-5'>
                   <button 
-                    className='uppercase text-white border-3 border-white py-4 px-8 rounded-full hover:bg-[#3f615dce] transition-colors duration-300'
+                    className='uppercase text-white border-3 border-white lg:py-4 lg:px-8 py-3 px-6 rounded-full hover:bg-[#3f615dce] transition-colors duration-300 lg:text-base text-sm'
                     aria-label="Shop premium indoor plants collection"
                   >
                     Shop Plants Now
@@ -192,7 +210,7 @@ const Hero = () => {
               </div>
             </div>
             
-            {/* Plant image positioned to overflow to the right */}
+            {/* Plant image positioned to overflow to the right - Desktop only */}
             <div className='absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-1/2 z-10'>
               <img 
                 src={ReviewPlant} 
@@ -206,9 +224,10 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Flash Cards that flows into the about section below*/}
-      <div className='relative z-30 main-font -mt-40'>
-        <div className='grid grid-cols-4 gap-6 px-8 max-w-[90rem] z-40 mx-auto'>
+      {/* Flash Cards - More space on mobile */}
+      <div className='relative z-30 main-font lg:-mt-40 mt-8'>
+        {/* Desktop Grid (lg and up) */}
+        <div className='hidden lg:grid grid-cols-4 gap-6 px-8 max-w-[90rem] z-40 mx-auto'>
           {flashCards.map((flash, index) => (
             <div key={flash.id} className='flip-card h-80 w-full perspective-1000'>
               <div 
@@ -266,6 +285,70 @@ const Hero = () => {
             </div>
           ))}
         </div>
+
+        {/* Mobile Horizontal Scroll with more space */}
+        <div className='lg:hidden'>
+          <div className='flex overflow-x-auto gap-6 px-4 pb-6 scrollbar-hide snap-x snap-mandatory'>
+            {flashCards.map((flash, index) => (
+              <div key={flash.id} className='flex-shrink-0 w-80 h-96 snap-start'>
+                <div className='flip-card h-full w-full perspective-1000'>
+                  <div 
+                    className='flip-card-inner relative w-full h-full transition-transform duration-700 transform-style-preserve-3d hover:rotate-y-180'
+                    style={{ transformStyle: 'preserve-3d' }}
+                  >
+                    {/* Front of card before flip */}
+                    <div 
+                      className='flip-card-front absolute w-full h-full backface-hidden rounded-2xl overflow-hidden shadow-2xl'
+                      style={{ 
+                        backfaceVisibility: 'hidden',
+                        transform: 'rotateY(0deg)'
+                      }}
+                    >
+                      <img 
+                       loading='lazy'
+                        src={flash.image} 
+                        alt={flash.title}
+                        className='w-full h-full object-cover'
+                      />
+                      <div className='absolute flex flex-col p-4 inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent'>
+                         <h2 className='text-white text-4xl font-bold'>{flash.head}</h2>
+                      </div>
+                    </div>
+                    
+                    {/* Back of the card when flipped*/}
+                    <div 
+                      className='flip-card-back absolute w-full h-full backface-hidden rounded-2xl shadow-2xl flex flex-col justify-center items-center p-6 text-center'
+                      style={{ 
+                        backfaceVisibility: 'hidden',
+                        transform: 'rotateY(180deg)',
+                        background: index === 0 ? '#ffffff' : '#ffffff'
+                      }}
+                    >
+                      <h3 className={`text-3xl font-bold mb-4 ${index === 0 ? 'text-gray-800' : 'text-primary'}`}>
+                        {flash.title}
+                      </h3>
+                      <p className={`text-base mb-6 leading-relaxed ${index === 0 ? 'text-gray-600' : 'text-primary'}`}>
+                        {flash.paragraph}
+                      </p>
+                      <button 
+                        className={`
+                          px-6 py-3 rounded-full font-semibold text-sm tracking-wide transition-all duration-300 uppercase
+                          ${index === 0 
+                            ? 'bg-[#ffd700] text-gray-800 hover:bg-yellow-500' 
+                            : 'border-2 border-[#00322d] text-primary hover:bg-[#ffd700] hover:text-green-800'
+                          }
+                        `}
+                        aria-label={`Discover ${flash.title}`}
+                      >
+                        {flash.cta}
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
 
       <style>{`
@@ -287,6 +370,21 @@ const Hero = () => {
         
         .flip-card-inner:hover {
           transform: rotateY(180deg);
+        }
+
+        /* Hide scrollbar for mobile cards */
+        .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+        
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+
+        /* Smooth scrolling for mobile */
+        .scrollbar-hide {
+          scroll-behavior: smooth;
         }
       `}</style>
     </>
