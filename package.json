@@ -1,7 +1,6 @@
 {
   "name": "vantage-app",
   "private": true,
-  "homepage": "https://Molten47.github.io/vantage-spaces",
   "version": "0.0.0",
   "type": "module",
   "scripts": {

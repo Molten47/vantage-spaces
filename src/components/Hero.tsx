@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import BackVideo from '../assets/64b7ad3f85627ca028e3cf80_VantageHomepageVideoWeb (1)-transcode.mp4'
 import Navbar from './Navbar'
 import ReviewPlant from '../assets/Review plant.webp'
-import YourLogo from '../assets/63d919c1aaf61dc3882a2464_VantageBrandMark_WHITE.svg' // Add your logo import here
 import { flashCards } from '../data/flashcards';
 
 const Hero = () => {
